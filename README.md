@@ -1,2 +1,2 @@
 # BotJS
-# Dies ist ein Bot von TillDV
+Dies ist ein Bot von TillDV
