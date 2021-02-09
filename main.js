@@ -20,12 +20,10 @@ var cmdmap = {
 }
 
 function cmd_say(msg, args) {
-    //msg.channel.send(args.join(' '))
     Embeds.message(msg.channel, args.join(' '))
 }
 
 function cmd_test(msg, args) {
-    //Embeds.error(msg.channel, 'Dies ist nur ein Test', 'Kein Fehler!')
     Embeds.info(msg.channel, "Test", "Test")
 }
 
@@ -43,7 +41,6 @@ client.on('message', (msg) => {
 
     if (author.id != client.user.id && cont.startsWith(config.prefix)) {
         
-        // !say Hello world!
         var invoke = cont.split(' ')[0].substr(config.prefix.length),
             args = cont.split(' ').slice(1)
         console.log(invoke, args)
@@ -52,6 +49,11 @@ client.on('message', (msg) => {
         }
     }
 })
+
+
+//client.on('guildMemberAdd', (memb) => {
+//    message.author.send("Willkommen auf dem Server")
+//})
 
 
 client.login(config.token)
