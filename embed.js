@@ -39,13 +39,17 @@ module.exports = {
                 color: COLORS.yello,
                 description: cont,
                 title: title,
-                fields: [
-                    {
-                        name: "Test",
-                        value: "Dies ist ein Test",
-                        inline: false
-                    }
-                ]
+            }
+        }
+        chan.send('', emb)
+    },
+
+    message(chan, cont, title){
+        var emb = {
+            embed: {
+                color: COLORS.green,
+                description: cont,
+                title: title,
             }
         }
         chan.send('', emb)
