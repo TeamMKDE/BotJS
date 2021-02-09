@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const fs = require('fs')
+const Embeds = require('./embed')
 
 const config = JSON.parse(fs.readFileSync('config.json', 'utf8'))
 
@@ -23,7 +24,8 @@ function cmd_say(msg, args) {
 }
 
 function cmd_test(msg, args) {
-    console.log("test")
+    //Embeds.error(msg.channel, 'Dies ist nur ein Test', 'Kein Fehler!')
+    Embeds.info(msg.channel, "Test", "Test")
 }
 
 function cmd_svrcount(msg, args) {
