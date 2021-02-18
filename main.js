@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const fs = require('fs')
 const Embeds = require('./embed')
+const datum = new Date()
 
 const config = JSON.parse(fs.readFileSync('config.json', 'utf8'))
 
@@ -17,7 +18,8 @@ var cmdmap = {
     say: cmd_say,
     test: cmd_test,
     svrcount: cmd_svrcount,
-    hypixel: cmd_hypixel
+    hypixel: cmd_hypixel,
+    time: cmd_time
 
 }
 
@@ -35,6 +37,10 @@ function cmd_test(msg, args) {
 
 function cmd_svrcount(msg, args) {
     msg.channel.send(`Der Bot ist auf ${client.guilds.size} Servern!`)
+}
+
+function cmd_time(msg) {datum.getTime()
+    Embeds.message(msg.channel, `Es ist ${datum.getHours()}:${datum.getMinutes()} Uhr.`, null)
 }
 
 client.on('message', (msg) => {
