@@ -16,11 +16,17 @@ client.on('ready', () => {
 var cmdmap = {
     say: cmd_say,
     test: cmd_test,
-    svrcount: cmd_svrcount
+    svrcount: cmd_svrcount,
+    hypixel: cmd_hypixel
+
 }
 
 function cmd_say(msg, args) {
     Embeds.message(msg.channel, args.join(' '))
+}
+
+function cmd_hypixel(msg, args) {
+    Embeds.hypixel(msg.channel, args)
 }
 
 function cmd_test(msg, args) {
@@ -49,11 +55,5 @@ client.on('message', (msg) => {
         }
     }
 })
-
-
-//client.on('guildMemberAdd', (memb) => {
-//    message.author.send("Willkommen auf dem Server")
-//})
-
 
 client.login(config.token)

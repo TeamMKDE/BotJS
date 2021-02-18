@@ -5,19 +5,14 @@ const COLORS = {
     green: 0x2ecc71,
     blue: 0x3498db,
     yello: 0xf1c40f,
-    purple: 0x9b59b6
+    purple: 0x9b59b6,
+    aqua: 0x1abc9c
 }
 
 exports.test = "test"
 
 module.exports = {
 
-    /**
-     * Sendet Fehlermeldung in einen Channel
-     * @param {DiscordAPIError.channel} chan Channel wohin Nachricht gesendet wird
-     * @param {string} cont 
-     * @param {string} title 
-     */
     error(chan, cont, title) {
         var message
         var emb = new RichEmbed()
@@ -33,6 +28,21 @@ module.exports = {
         return message
     },
 
+    hypixel(chan, cont) {
+        var emb = {
+            embed: {
+                title: `Hypixel Level von ${cont}`,
+                image: {
+                    url: `https://gen.plancke.io/exp/${cont}.png`,
+                }
+            }
+        }
+        chan.send('', emb)
+    },
+
+    
+    
+    
     info(chan, cont, title){
         var emb = {
             embed: {
